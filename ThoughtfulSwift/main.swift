@@ -8,6 +8,17 @@
 import Foundation
 
 // Запуск:
-runCurrencyConverterInteractive()
+print("Выберите модуль: 1 - Currency, 2 - LeapYear")
+
+if let choice = readLine() {
+    switch choice {
+    case "1":
+        runCurrencyConverter()
+    default:
+        print("❌ Неверный выбор")
+    }
+} else {
+    print("❌ Ошибка ввода")
+}
   
 
