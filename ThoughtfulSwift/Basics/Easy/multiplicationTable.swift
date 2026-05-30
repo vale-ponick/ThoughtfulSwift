@@ -7,6 +7,9 @@
 
 import Foundation
 
+// MARK: - MultiplicationTable
+
+/* */
 func  runMultiplicationTable() {
     while true {
         print("Enter a number: ", terminator: "")
