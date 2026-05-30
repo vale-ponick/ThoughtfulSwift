@@ -19,7 +19,7 @@ func runLeapYear() {
         
         let trimmed = input.lowercased().trimmingCharacters(in: .whitespaces)
         if trimmed == "quit" {
-            print("👋 Goodbye!")
+            print("By, vale.ponick!")
             break
         }
         
