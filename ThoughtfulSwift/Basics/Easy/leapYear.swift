@@ -17,7 +17,8 @@ func runLeapYear() {
         
         guard let input = readLine() else { continue }
         
-        if input.lowercased() == "quit" {
+        let trimmed = input.lowercased().trimmingCharacters(in: .whitespaces)
+        if trimmed == "quit" {
             print("👋 Goodbye!")
             break
         }
