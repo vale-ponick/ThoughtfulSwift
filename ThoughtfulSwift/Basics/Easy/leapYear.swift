@@ -32,3 +32,11 @@ func runLeapYear() {
              print(isLeap ? "✅ Leap year" : "❌ Not leap year")
          }
 }
+/*
+ Выберите модуль: 1 - Currency, 2 - LeapYear
+ 2
+ Enter the year: 2000
+ ✅ Leap year
+ Enter the year: quit
+ By, vale.ponick!
+ */

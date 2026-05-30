@@ -8,7 +8,7 @@
 import Foundation
 
 // Запуск:
-print("Выберите модуль: 1 - Currency, 2 - LeapYear")
+print("Выберите модуль: 1 - Currency, 2 - LeapYear, 3 - MultiplicationTable")
 
 if let choice = readLine() {
     switch choice {
@@ -16,6 +16,8 @@ if let choice = readLine() {
         runCurrencyConverter()
     case "2":
         runLeapYear()
+    case "3":
+        runMultiplicationTable()
     default:
         print("❌ Неверный выбор")
     }
