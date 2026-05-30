@@ -13,27 +13,21 @@ import Foundation
 
 func runLeapYear() {
     while true {
-        print("Enter the year: ")
+        print("Enter the year: ", terminator: "")
         
-        guard let input = readLine(), !input.isEmpty else {
-            print("Error, enter year: ")
-            continue
-        }
-        guard let validInput = Int(input) else {
-            print("Error, not a number")
-            continue
-        }
-        if (validInput) % 4 == 0, (validInput) % 100 != 0 || (validInput) % 400 == 0 {
-            print("\(validInput) - leap year")
-        } else {
-            print("\(validInput) - not leap year")
-        }
-        print("Enter next year? (y/n): ")
+        guard let input = readLine() else { continue }
         
-        if let answer = readLine(), answer.lowercased() == "yes" || answer.lowercased() == "y" {
-            continue
-        } else {
+        if input.lowercased() == "quit" {
+            print("👋 Goodbye!")
             break
         }
-    }
+        
+        guard let year = Int(input), year > 0 else {
+            print("❌ Invalid year")
+            continue
+        }
+            
+        let isLeap = year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)
+             print(isLeap ? "✅ Leap year" : "❌ Not leap year")
+         }
 }
