@@ -14,6 +14,8 @@ if let choice = readLine() {
     switch choice {
     case "1":
         runCurrencyConverter()
+    case "2":
+        runLeapYear()
     default:
         print("❌ Неверный выбор")
     }

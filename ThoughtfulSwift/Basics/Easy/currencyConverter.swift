@@ -9,22 +9,29 @@ import Foundation
 // MARK: - Интерактивный конвертер валют
 
 func runCurrencyConverter() {
-    print("Введите сумму в USD:")
+    print("Введите сумму в RUB:")
     
     guard let input = readLine(),
-          let usd = Double(input) else {
+          let rub = Double(input) else {
         print("❌ Amount must be a number")
         return
     }
     
-    let eur = usd * 0.92
-    let rub = usd * 88.5
+    let eur = rub / 83.69
+    let usd = rub / 71.37
     
-    print("💰 \(usd) USD = \(eur) EUR")
-    print("💰 \(usd) USD = \(rub) RUB")
+    print("💰 \(rub) RUB = \(eur) EUR")
+    print("💰 \(rub) RUB = \(usd) USD")
 }
 
-
+/*
+ Выберите модуль: 1 - Currency, 2 - LeapYear
+ 1
+ Введите сумму в RUB:
+ 30000
+ 💰 30000.0 RUB = 358.4657665192974 EUR
+ 💰 30000.0 RUB = 420.3446826397646 USD
+ */
 
 
 
