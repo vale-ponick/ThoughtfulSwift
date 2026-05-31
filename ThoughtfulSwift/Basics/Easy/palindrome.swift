@@ -13,17 +13,18 @@ import Foundation
 
 func runPalindrome() {
     while true {
-        print("Enter word/frase: ", terminator: " ")
-        guard let input = readLine() else { continue }
+        print("Enter word/frase (or 'quit'): ", terminator: " ")
+        guard let input = readLine()? // → Optional String
+            .trimmingCharacters(in: .whitespacesAndNewlines)  // → убирает пробелы по краям
+            .replacingOccurrences(of: " ", with: "") else { // → убирает пробелы внутри
+            continue // → если на любом шаге nil — continue
+        }
         
-        let trimmed = input.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " ", with: "")
-        
-        if trimmed == "quit" {
+        if input == "quit" {
             print("By, vale")
             break
         }
-        let process = trimmed.lowercased()
-        let isPalindrome = (process == String(process.reversed()))
-        print(isPalindrome ? "✅ Palindrome" : "❌ Not palindrome")
+    
+        print(input == String(input.reversed()) ? "✅ Palindrome" : "❌ Not palindrome")
     }
 }
