@@ -8,7 +8,7 @@
 import Foundation
 
 // Запуск:
-print("Выберите модуль: 1 - Currency, 2 - LeapYear, 3 - MultiplicationTable, 4 - ArrayStats")
+print("Выберите модуль: 1 - Currency, 2 - LeapYear, 3 - MultiplicationTable, 4 - ArrayStats, 5 - Palindrome")
 
 if let choice = readLine() {
     switch choice {
@@ -20,6 +20,8 @@ if let choice = readLine() {
         runMultiplicationTable()
     case "4":
         runArrayStats()
+    case "5":
+        runPalindrome()
     default:
         print("❌ Неверный выбор")
     }

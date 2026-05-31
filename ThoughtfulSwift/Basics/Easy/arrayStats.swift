@@ -36,3 +36,10 @@ func runArrayStats() {
         print("Sum: \(sum), Min: \(min), Max: \(max)")
     }
 }
+
+/* Выберите модуль: 1 - Currency, 2 - LeapYear, 3 - MultiplicationTable, 4 - ArrayStats
+ 4
+ Enter 5 numbers(e.g. 1 2 3 4 5:  12 12 12 12 12
+ Sum: 60, Min: 12, Max: 12
+ Enter 5 numbers(e.g. 1 2 3 4 5:  quit
+ By, vale */
