@@ -1,0 +1,58 @@
+//
+//  toDoManager.swift
+//  ThoughtfulSwift
+//
+//  Created by Валерия Пономарева on 02.06.2026.
+//
+
+import Foundation
+
+// MARK: - ToDoTracker
+
+struct ToDoTracker: ExetableTask {
+    let id = "1"
+    
+    func run() {
+        print("🔢 Sum of Digits — сумма цифр числа")
+            while true {
+                print("Enter a number (or 'quit'): ", terminator: "")
+                
+                guard let input = readLine()?
+                    .trimmingCharacters(in: .whitespacesAndNewlines)
+                    .lowercased()
+                else { continue }
+                
+                if input == "quit" {
+                    print("By, vale")
+                    break
+                }
+                
+                var sum = 0
+                var isValid = true
+                
+                for char in input {
+                    if let num = Int(String(char)) {
+                        sum += num
+                    } else {
+                        print("❌ '\(char)' is not a digit")
+                        isValid = false
+                        break
+                    }
+                }
+                if isValid {
+                    print("✅ Sum of digits: \(sum)")
+                }
+            }
+        }
+        /* Выберите модуль: 1 - Currency, 2 - LeapYear, 3 - MultiplicationTable, 4 - ArrayStats, 5 - Palindrome, 6 - ReverseString, 7 - SumOfDigits
+         7
+         Enter a number (or 'quit'): 1221
+         ✅ Sum of digits: 6
+         Enter a number (or 'quit'): 33333
+         ✅ Sum of digits: 15
+         Enter a number (or 'quit'): quit
+         ❌ 'й' is not a digit
+         Enter a number (or 'quit'): quit
+         By, vale
+         Program ended with exit code: 0 */
+}

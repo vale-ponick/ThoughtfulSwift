@@ -47,3 +47,14 @@ func runSumOfDigits() {
         }
     }
 }
+/* Выберите модуль: 1 - Currency, 2 - LeapYear, 3 - MultiplicationTable, 4 - ArrayStats, 5 - Palindrome, 6 - ReverseString, 7 - SumOfDigits
+ 7
+ Enter a number (or 'quit'): 1221
+ ✅ Sum of digits: 6
+ Enter a number (or 'quit'): 33333
+ ✅ Sum of digits: 15
+ Enter a number (or 'quit'): quit
+ ❌ 'й' is not a digit
+ Enter a number (or 'quit'): quit
+ By, vale
+ Program ended with exit code: 0 */

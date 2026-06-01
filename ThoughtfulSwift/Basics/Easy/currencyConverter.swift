@@ -23,8 +23,7 @@ func runCurrencyConverter() {
     print("💰 \(rub) RUB = \(eur) EUR")
     print("💰 \(rub) RUB = \(usd) USD")
 }
-
-/*
+/* 
  Выберите модуль: 1 - Currency, 2 - LeapYear
  1
  Введите сумму в RUB:
