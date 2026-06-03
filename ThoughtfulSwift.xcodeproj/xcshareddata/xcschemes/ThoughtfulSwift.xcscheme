@@ -58,11 +58,11 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "easy"
+            argument = "fixmistakes"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "1"
+            argument = "fix2"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

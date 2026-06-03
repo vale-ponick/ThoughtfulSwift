@@ -11,8 +11,9 @@ enum DifficultyLevel: String {
     case easy
     case medium
     case hard
+    case fixmistakes
     
-    var tasks: [ExetableTask] {
+    var tasks: [ExecutableTask] {
         switch self {
         case .easy:
             return [
@@ -22,6 +23,11 @@ enum DifficultyLevel: String {
             return []
         case .hard:
             return []
+        case .fixmistakes:
+            return [
+                ArgumentExplorerTask(),
+                ExitVsReturnTask()
+            ]
         }
     }
 }
