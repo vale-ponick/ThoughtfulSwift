@@ -54,15 +54,11 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = ""
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
             argument = "fixmistakes"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "fix2"
+            argument = "fix3"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

@@ -26,7 +26,8 @@ enum DifficultyLevel: String {
         case .fixmistakes:
             return [
                 ArgumentExplorerTask(),
-                ExitVsReturnTask()
+                ExitVsReturnTask(),
+                SeasonCheckerTask()
             ]
         }
     }
