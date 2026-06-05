@@ -27,7 +27,8 @@ enum DifficultyLevel: String {
             return [
                 ArgumentExplorerTask(),
                 ExitVsReturnTask(),
-                SeasonCheckerTask()
+                SeasonCheckerTask(),
+                FindUserTask() 
             ]
         }
     }
