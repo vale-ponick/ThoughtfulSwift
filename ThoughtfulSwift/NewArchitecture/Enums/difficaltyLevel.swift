@@ -31,7 +31,8 @@ enum DifficultyLevel: String {
                 FindUserTask(),
                 FindProductTask(),
                 FindCheapProductTask(),
-                FindProductByPrefixTask()
+                FindProductByPrefixTask(),
+                SafeIntParserTask()
             ]
         }
     }
