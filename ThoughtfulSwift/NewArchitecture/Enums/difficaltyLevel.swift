@@ -29,7 +29,8 @@ enum DifficultyLevel: String {
                 ExitVsReturnTask(),
                 SeasonCheckerTask(),
                 FindUserTask(),
-                FindProductTask()
+                FindProductTask(),
+                FindCheapProductTask()
             ]
         }
     }
