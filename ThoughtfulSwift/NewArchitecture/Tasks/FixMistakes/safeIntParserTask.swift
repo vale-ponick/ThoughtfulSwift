@@ -13,7 +13,7 @@ struct SafeIntParserTask: ExecutableTask {
     let id = "fix8"
     
     func run() {
-        print("📝 SafeIntParserTask")
+        print("📝 SafeIntParserTask - using  guard let + if let")
         print("Enter a number: ", terminator: "")
         
         guard let input = readLine()?.trimmingCharacters(in: .whitespaces) else {
