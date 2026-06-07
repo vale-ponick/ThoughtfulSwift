@@ -30,7 +30,8 @@ enum DifficultyLevel: String {
                 SeasonCheckerTask(),
                 FindUserTask(),
                 FindProductTask(),
-                FindCheapProductTask()
+                FindCheapProductTask(),
+                FindProductByPrefixTask()
             ]
         }
     }
