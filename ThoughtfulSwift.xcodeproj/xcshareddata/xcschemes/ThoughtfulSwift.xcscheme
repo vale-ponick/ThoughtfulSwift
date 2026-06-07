@@ -58,7 +58,7 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "fix9"
+            argument = "fix10"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
