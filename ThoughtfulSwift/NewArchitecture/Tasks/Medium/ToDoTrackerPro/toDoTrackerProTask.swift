@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ToDoTrackerTask: ExecutableTask {
+struct ToDoTrackerProTask: ExecutableTask {
     let id = "1"
     
     func run() {

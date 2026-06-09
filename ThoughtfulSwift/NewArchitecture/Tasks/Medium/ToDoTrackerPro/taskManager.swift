@@ -54,6 +54,9 @@ class TaskManager {
         }
         
         func save() {
+            print("💾 Saving tasks to: \(fileURL.path)")
+            print("📂 Full path: \(fileURL.path)")
+          
          let encoder = JSONEncoder() // ?
             encoder.outputFormatting = .prettyPrinted // чтобы JSON был читаемым -> кодируем tasks в JSON
             guard let data = try?encoder.encode(tasks) else {

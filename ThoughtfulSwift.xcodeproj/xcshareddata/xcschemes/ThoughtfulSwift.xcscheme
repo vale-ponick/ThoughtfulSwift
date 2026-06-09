@@ -54,11 +54,11 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "fixmistakes"
+            argument = "medium"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "fix10"
+            argument = "1"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
