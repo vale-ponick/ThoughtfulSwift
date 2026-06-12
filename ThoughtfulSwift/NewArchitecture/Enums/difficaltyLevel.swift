@@ -17,7 +17,8 @@ enum DifficultyLevel: String {
         switch self {
         case .easy:
             return [
-                ToDoTracker()
+                ToDoTracker(),
+                LearningTrackTask()
             ]
         case .medium:
             return [
