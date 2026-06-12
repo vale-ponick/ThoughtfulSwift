@@ -18,7 +18,7 @@ struct SnippetTrackerTask: ExecutableTask {
         print("📋 SnippetTrackPro — подборка сниппетов")
         
         while true {
-            print("\nCommands: new, list, today, save, load, quit")
+            print("\nCommands: new, list, today, save, load, delete, quit")
             print("> ", terminator: "")
             
             guard let input = readLine()?.lowercased().trimmingCharacters(in: .whitespaces) else { continue }
@@ -50,6 +50,18 @@ struct SnippetTrackerTask: ExecutableTask {
                 snippetStore.save()
                 print("By, vale.ponick!")
                 return
+                
+            case "delete":
+                print("Enter number: ", terminator: "")
+                guard let numStr = readLine(), let num = Int(numStr) else {
+                    print("❌ Invalid number")
+                    continue
+                }
+                if snippetStore.delete(at: num) {
+                    print("🗑️ Deleted")
+                } else {
+                    print("❌ Invalid number")
+                }
                 
             default:
                 print("❌ Unknown command")
