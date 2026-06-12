@@ -22,7 +22,8 @@ enum DifficultyLevel: String {
             ]
         case .medium:
             return [
-            ToDoTrackerProTask()
+            ToDoTrackerProTask(),
+            SnippetTrackerTask()
             ]
         case .hard:
             return []

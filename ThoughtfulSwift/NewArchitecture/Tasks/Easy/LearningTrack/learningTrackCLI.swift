@@ -13,7 +13,7 @@ struct LearningTrackTask: ExecutableTask {
     func run() {
         print("📝 LearningTrack: заметки по основам Swift (тема + заметка). Команды: new, list, today, quit")
         
-        let learningNote = SummaryNotes(entries: [])
+        let learningNote = SummaryNotes(notes: [])
         
         while true {
             print("\nCommands: new, list, today, quit")

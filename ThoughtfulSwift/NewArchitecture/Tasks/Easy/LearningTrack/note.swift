@@ -8,9 +8,9 @@
 import Foundation
 
 // MARK: - LearningTrack
-// MARK: - Entry -> 'модель ОДНОЙ записи'
+// MARK: - Note -> 'модель ОДНОЙ записи'
 
-struct Entry {
+struct Note {
     let topic: String
     let note: String
     let date: Date

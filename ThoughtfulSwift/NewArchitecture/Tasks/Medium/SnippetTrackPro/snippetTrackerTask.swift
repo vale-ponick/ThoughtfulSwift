@@ -1,0 +1,60 @@
+//
+//  snippetTrackerTask.swift
+//  ThoughtfulSwift
+//
+//  Created by Валерия Пономарева on 12.06.2026.
+//
+
+import Foundation
+
+// MARK: - SnippetTrackPro
+
+struct SnippetTrackerTask: ExecutableTask {
+    let id = "2"
+    
+    func run() {
+        let snippetStore = SnippetStore()
+        
+        print("📋 SnippetTrackPro — подборка сниппетов")
+        
+        while true {
+            print("\nCommands: new, list, today, save, load, quit")
+            print("> ", terminator: "")
+            
+            guard let input = readLine()?.lowercased().trimmingCharacters(in: .whitespaces) else { continue }
+            
+            switch input {
+            case "new":
+                print("Title: ", terminator: "")
+                guard let title = readLine(), !title.isEmpty else { continue }
+                print("Code: ", terminator: "")
+                guard let code = readLine(), !code.isEmpty else { continue }
+                print("Note: ", terminator: "")
+                guard let note = readLine(), !note.isEmpty else { continue }
+                snippetStore.addSnippet(title: title, code: code, note: note)
+                print("✅ Added snippet: \(title)")   // ← ТОЛЬКО ЗДЕСЬ
+                
+            case "list":
+                snippetStore.list()
+                
+            case "today":
+                snippetStore.today()
+                
+            case "save":
+                snippetStore.save()
+                
+            case "load":
+                snippetStore.load()
+                
+            case "quit":
+                snippetStore.save()
+                print("By, vale.ponick!")
+                return
+                
+            default:
+                print("❌ Unknown command")
+            }
+        }
+    }
+}
+     
