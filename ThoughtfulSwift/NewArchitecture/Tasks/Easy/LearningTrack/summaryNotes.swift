@@ -26,7 +26,8 @@ class SummaryNotes {
             return
         }
         for (index, newEntry) in entries.enumerated() {
-            print("\(index + 1). \(newEntry.topic): \(newEntry.note)")
+            print("\(index + 1). \(newEntry.topic)")
+            print("\(newEntry.note)")
         }
     }
     func today() { // печатает записи, у которых date сегодняшняя
@@ -45,8 +46,8 @@ class SummaryNotes {
 
             print("\n📅 Сегодняшние записи (\(todayString)):")
             for (index, entry) in entriesToday.enumerated() {
-                print("   \(index + 1). 📌 \(entry.topic)")
-                print("       📝 \(entry.note)")
+                print("   \(index + 1). 🔤 \(entry.topic)")
+                print("      📝 \(entry.note)")
             }
         }
     }
