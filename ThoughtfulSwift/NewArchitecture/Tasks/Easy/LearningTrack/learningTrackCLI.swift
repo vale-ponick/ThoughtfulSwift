@@ -11,12 +11,12 @@ struct LearningTrackTask: ExecutableTask {
     let id = "2"
     
     func run() {
-        print("📝 LearningTrack: заметки по основам Swift (тема + заметка). Команды: new, list, today, quit")
+        print("📝 LearningTrack: заметки по основам Swift (тема + заметка). Команды: new, list, today, export, quit")
         
         let learningNote = SummaryNotes(notes: [])
         
         while true {
-            print("\nCommands: new, list, today, quit")
+            print("\nCommands: new, list, today, export, quit")
             print("> ", terminator: "")
             
             guard let note = readLine()?.lowercased() else { continue }
@@ -39,6 +39,8 @@ struct LearningTrackTask: ExecutableTask {
                 learningNote.list()
             case "today":
                 learningNote.today()
+            case "export":
+                learningNote.exportToText()
             case "quit":
                 print("By, vale.ponick!")
                 return

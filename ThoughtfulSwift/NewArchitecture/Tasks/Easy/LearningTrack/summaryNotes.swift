@@ -13,6 +13,16 @@ class SummaryNotes {
     init(notes: [Note]) {
         self.notes = notes
     }
+    private var fileURL: URL {
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return urls[0].appendingPathComponent("tasks.json")
+    }
+    
+    private func formattedDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: date)
+    }
     
     func add(topic: String, note: String) { // прими строку
         let date = Date()
@@ -49,6 +59,27 @@ class SummaryNotes {
                 print("   \(index + 1). 🔤 \(note.topic)")
                 print("      📝 \(note.note)")
             }
+        }
+    }
+    func exportToText() {
+        var result = ""
+        for note in notes {
+            result += "--- \(note.topic) ---\n"
+            result += "📅 \(formattedDate(note.date))\n"
+            result += "---\n\n"
+        }
+
+        let textURL = fileURL.deletingLastPathComponent().appendingPathComponent("notes.txt")
+
+        guard let data = result.data(using: .utf8) else {
+            print("❌ Failed to convert note to data")
+            return
+        }
+        do {
+            try data.write(to: textURL)
+            print("✅ Exported \(notes.count) notes to notes.txt")
+        } catch {
+            print("❌ Failed to export: \(error.localizedDescription)")
         }
     }
 }

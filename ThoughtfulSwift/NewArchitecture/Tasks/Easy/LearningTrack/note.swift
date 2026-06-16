@@ -13,5 +13,5 @@ import Foundation
 struct Note {
     let topic: String
     let note: String
-    let date: Date
+    var date = Date()
 }
