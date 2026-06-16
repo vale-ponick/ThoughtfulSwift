@@ -17,7 +17,7 @@ struct ToDoTrackerProTask: ExecutableTask {
         print("📋 ToDoTrackerPro — управление задачами")
         
         while true {
-        print("\nCommands: add, list, done, delete, save, load, quit")
+        print("\nCommands: add, list, done, delete, save, load, export, quit")
         print("> ", terminator: "") // "> -> "Программа ждёт вашего ввода"
             
         guard let input = readLine()?.lowercased() else { continue }
@@ -50,6 +50,9 @@ struct ToDoTrackerProTask: ExecutableTask {
                 } else {
                     print("❌ Invalid number")
                 }
+                
+            case .export:
+                manager.exportToText()
                 
             case .delete:
                 print("Task number: ", terminator: "")

@@ -18,7 +18,7 @@ struct SnippetTrackerTask: ExecutableTask {
         print("📋 SnippetTrackPro — подборка сниппетов")
         
         while true {
-            print("\nCommands: new, list, today, save, load, delete, quit")
+            print("\nCommands: new, list, today, save, load, export, delete, quit")
             print("> ", terminator: "")
             
             guard let input = readLine()?.lowercased().trimmingCharacters(in: .whitespaces) else { continue }
@@ -31,8 +31,9 @@ struct SnippetTrackerTask: ExecutableTask {
                 guard let code = readLine(), !code.isEmpty else { continue }
                 print("Note: ", terminator: "")
                 guard let note = readLine(), !note.isEmpty else { continue }
+                
+                // Функция addSnippet сама выведет "✅ Added snippet: ..."
                 snippetStore.addSnippet(title: title, code: code, note: note)
-                print("✅ Added snippet: \(title)")   // ← ТОЛЬКО ЗДЕСЬ
                 
             case "list":
                 snippetStore.list()
@@ -45,11 +46,9 @@ struct SnippetTrackerTask: ExecutableTask {
                 
             case "load":
                 snippetStore.load()
-                
-            case "quit":
-                snippetStore.save()
-                print("By, vale.ponick!")
-                return
+            
+            case "export":
+                snippetStore.exportToText()
                 
             case "delete":
                 print("Enter number: ", terminator: "")
@@ -62,6 +61,11 @@ struct SnippetTrackerTask: ExecutableTask {
                 } else {
                     print("❌ Invalid number")
                 }
+                
+            case "quit":
+                snippetStore.save()
+                print("By, vale.ponick!")
+                return
                 
             default:
                 print("❌ Unknown command")

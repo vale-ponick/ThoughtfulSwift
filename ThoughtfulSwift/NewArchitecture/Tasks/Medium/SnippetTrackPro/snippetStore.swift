@@ -98,4 +98,27 @@ class SnippetStore {
         snippets.remove(at: index) // delete element on index -> array is change!
         return true
     }
+    func exportToText() {
+        var result = ""
+        for snippet in snippets {
+            result += "--- \(snippet.title) ---\n"
+            result += "📝 \(snippet.note)\n"
+            result += "🔧 \(snippet.code)\n"
+            result += "📅 \(formattedDate(snippet.date))\n"
+            result += "---\n\n"
+        }
+    
+        let textURL = fileURL.deletingLastPathComponent().appendingPathComponent("snippets.txt")
+    
+        guard let data = result.data(using: .utf8) else {
+            print("❌ Failed to convert text to data")
+            return
+        }
+        do {
+            try data.write(to: textURL)
+            print("✅ Exported \(snippets.count) snippets in snippets.txt")
+        } catch {
+            print("❌ Failed to export: \(error.localizedDescription)")
+        }
+    }
 }

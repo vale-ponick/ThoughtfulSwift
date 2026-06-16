@@ -14,6 +14,11 @@ class TaskManager {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return urls[0].appendingPathComponent("tasks.json")
     }
+    private func formattedDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: date)
+    }
     
     func add(title: String) { // прими строку 'title'
         let newTask = Task(title: title) // создай новую задачу
@@ -42,6 +47,27 @@ class TaskManager {
             tasks[index].isCompleted = true // 4. Отмечаем задачу как выполненную
             return true // 5. Возвращаем true (успех)
         }
+    func exportToText() {
+        var result = ""
+        for task in tasks {
+            result += "--- \(task.title) ---\n"
+            result += "📅 \(formattedDate(task.date))\n"
+            result += "---\n\n"
+        }
+
+        let textURL = fileURL.deletingLastPathComponent().appendingPathComponent("tasks.txt")
+
+        guard let data = result.data(using: .utf8) else {
+            print("❌ Failed to convert text to data")
+            return
+        }
+        do {
+            try data.write(to: textURL)
+            print("✅ Exported \(tasks.count) tasks to tasks.txt")
+        } catch {
+            print("❌ Failed to export: \(error.localizedDescription)")
+        }
+    }
         
         func delete(at number: Int) -> Bool {
            let index = number - 1 // Преобразование индекса: Вычисляем индекс в массиве

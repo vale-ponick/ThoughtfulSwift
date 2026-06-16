@@ -8,8 +8,7 @@
 import Foundation
 
 func main() {
-    setbuf(stdout, nil)
-    print("DEBUG: main() started")
+
     let arguments = CommandLine.arguments
     
     guard arguments.count > 2 else {

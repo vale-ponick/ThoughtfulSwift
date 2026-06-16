@@ -8,7 +8,7 @@
 import Foundation
 
 enum Command: String { // using 'rawValue' для преобразования ввода user
-    case add, list, done, delete, save, load, exit
+    case add, list, done, delete, save, load, export, exit
 }
 
 

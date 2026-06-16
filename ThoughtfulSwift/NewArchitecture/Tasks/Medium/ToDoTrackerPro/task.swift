@@ -11,6 +11,7 @@ struct Task: Codable {
     var id = UUID() // — уникальный идентификатор
     let title: String // — название задачи
     var isCompleted = false // — статус выполнения
+    var date = Date()
 }
 
 
