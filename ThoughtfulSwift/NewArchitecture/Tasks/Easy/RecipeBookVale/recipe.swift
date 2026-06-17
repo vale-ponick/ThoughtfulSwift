@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Recipe { // модель данных
+struct Recipe: Codable { // модель данных
     let name: String
     var ingredients: [String]
     var steps: [String]
     let date = Date()
     let category: RecipeCategories
 }
-enum RecipeCategories { // модель данных
-    case salads, soups, pies, sideDishes, meat, fish
+enum RecipeCategories: String, Codable { // модель данных
+    case salads, soups, pies, sidedishes, meat, fish
 }
