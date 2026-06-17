@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Recipe {
+struct Recipe { // модель данных
     let name: String
     var ingredients: [String]
     var steps: [String]
     let date = Date()
     let category: RecipeCategories
 }
-enum RecipeCategories {
+enum RecipeCategories { // модель данных
     case salads, soups, pies, sideDishes, meat, fish
 }

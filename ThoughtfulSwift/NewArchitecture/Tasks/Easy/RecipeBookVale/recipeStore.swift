@@ -25,7 +25,10 @@ class RecipeStore {
         return formatter.string(from: date)
     }
     
-    func add() {
+    func add(name: String, ingredients: [String], steps: [String], category: RecipeCategories) {
+        let newRecipe = Recipe(name: name, ingredients: ingredients, steps: steps, category: category)
+        recipes.append(newRecipe) // добавь ее в массив
+        print("✅ Added: \(name)")
     }
     func view() {
     }

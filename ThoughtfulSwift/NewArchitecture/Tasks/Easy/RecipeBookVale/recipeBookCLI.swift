@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct RecipeBookTask: ExecutableTask {
+    let id = "3"
+    
+    func run() {
+        print("🍳 RecipeBookTask: книга рецептов. Команды: new, list, today, export, quit")
+    }
+}

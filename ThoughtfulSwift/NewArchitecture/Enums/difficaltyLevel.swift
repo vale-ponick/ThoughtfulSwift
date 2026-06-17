@@ -18,7 +18,8 @@ enum DifficultyLevel: String {
         case .easy:
             return [
                 ToDoTracker(),
-                LearningTrackTask()
+                LearningTrackTask(),
+                RecipeBookTask()
             ]
         case .medium:
             return [
