@@ -8,9 +8,9 @@
 import Foundation
 
 class RecipeSimleStore { //управляет массивом рецептов
-    var recipes: [Recipe] = []
+    var recipes: [RecipeSimple] = []
     
-    init(initialRecipes: [Recipe] = []) { // это инициализатор с параметром по умолчанию
+    init(initialRecipes: [RecipeSimple] = []) { // это инициализатор с параметром по умолчанию
         self.recipes = initialRecipes // задаёт начальный массив для RecipeStore
     }
     
@@ -24,8 +24,8 @@ class RecipeSimleStore { //управляет массивом рецептов
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter.string(from: date)
     }
-    func add(name: String, ingredients: [String], steps: [String], category: RecipeCategories) {
-        let recipe = Recipe(name: name, ingredients: ingredients, steps: steps, category: category)
+    func add(name: String, ingredients: [String], steps: [String], category: RecipeSimpleCategories) {
+        let recipe = RecipeSimple(name: name, ingredients: ingredients, steps: steps, category: category)
         recipes.append(recipe)
         print("✅ Added: \(name)")
     }
@@ -91,6 +91,55 @@ class RecipeSimleStore { //управляет массивом рецептов
         }
         
         let textURL = fileURL.deletingLastPathComponent().appending(path: "recipes.txt", directoryHint: .notDirectory)
+        
+        guard let data = result.data(using: .utf8) else { // Превращает строку result в Data (байты) в кодировке UTF-8
+            print("❌ Failed to convert text to data")
+            return // Если преобразование не удалось (например, строка содержит невалидные символы) — выходим
+        }
+        do {
+            try data.write(to: textURL)
+            print("✅ Exported \(recipes.count) recipes to recipes.txt")
+        } catch {
+            print("Failed to export: \(error.localizedDescription)")
+        }
     }
     
+    func save() {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        encoder.dateEncodingStrategy = .iso8601
+        
+        guard let data = try? encoder.encode(recipes) else {
+            print("❌ Failed to encoder recipes")
+            return
+        }
+        do {
+            try data.write(to: fileURL)
+            print("✅ Saved \(recipes.count) recipes")
+        } catch {
+            print("✅ Failed to save: \(error.localizedDescription)")
+        }
+    }
+    func load() { // 1. проверка перед чтением: существует ли файл?
+        guard FileManager.default.fileExists(atPath: fileURL.path) else {
+            return  // Если файла нет — просто выходим (это не ошибка)
+        }
+        
+        guard let data = try? Data(contentsOf: fileURL) else { // 2. Пытаемся прочитать данные из файла
+            print("❌ Failed to read data")
+            return
+        }
+        
+        let decoder = JSONDecoder()  // 3. Создаём декодер
+        decoder.dateDecodingStrategy = .iso8601 // даты в ISO-формате
+        
+        guard let loaded = try? decoder.decode([RecipeSimple].self, from: data) else {
+            print("❌ Failed to decode recipes")
+            return
+        }
+        
+        recipes = loaded  // 5. Обновляем массив
+        print("✅ Loaded \(recipes.count) recipes")
+
+    }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RecipeSimple { // модель данных (хранит имя, ингредиенты, шаги, категорию)
+struct RecipeSimple: Codable { // модель данных (хранит имя, ингредиенты, шаги, категорию)
     let name: String
     let ingredients: [String]
     let steps: [String]
@@ -17,7 +17,7 @@ struct RecipeSimple { // модель данных (хранит имя, инг�
    
 }
 
-enum RecipeSimpleCategories {
+enum RecipeSimpleCategories: String, Codable {
     case salads, meat, fish, pies, soups, sidedishes
     
     var recipeSimpleCategoryEmoji: String {
