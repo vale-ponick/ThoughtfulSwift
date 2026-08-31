@@ -20,7 +20,11 @@ enum DifficultyLevel: String {
                 ToDoTracker(),
                 LearningTrackTask(),
                 RecipeBookTask(),
-                RecipeBookSimpleTask()
+                RecipeBookSimpleTask(),
+                MovieCLI(),
+                BookCLI(),
+                WeatherTrackCLI()
+                
             ]
         case .medium:
             return [
